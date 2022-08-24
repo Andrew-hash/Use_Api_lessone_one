@@ -1,1 +1,16 @@
-/home/andrey/PycharmProjects/Lesson_one
+import requests
+from pprint import pprint
+import json
+
+user_name = "Microsoft"
+user_agent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0"
+url = f"https://api.github.com/users/{user_name}/repos"
+
+response = requests.get(url=url)
+j_data = response.json()
+
+repo = {}
+for repo in j_data:
+    name = repo["name"]
+    print(name)
+
